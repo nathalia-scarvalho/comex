@@ -11,9 +11,10 @@ import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.Locale;
 
+
 public class Main {
 
-    private static final Logger logger = LoggerFactory.getLogger(Main.class);
+    private static final Logger logger = LoggerFactory.getLogger(Scanner.class);
 
     public static void main(String[] args) throws IOException, URISyntaxException {
         Pedido[] pedidos = ProcessadorDeCsv.processaArquivo("pedidos.csv");
@@ -78,4 +79,6 @@ public class Main {
         logger.info("PEDIDO MAIS CARO: {} ({})\n", NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(pedidoMaisCaro.getPreco().multiply(new BigDecimal(pedidoMaisCaro.getQuantidade())).setScale(2, RoundingMode.HALF_DOWN)), pedidoMaisCaro.getProduto());
         logger.info("### FIM DO RELATÓRIO ###");
     }
-}
+
+    }
+
